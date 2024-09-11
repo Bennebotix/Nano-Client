@@ -11,6 +11,10 @@ const assets = [
   "/js/app.js",
 ]
 
+self.addEventListener('notificationclick', function (event) {
+  event.notification.close();
+  clients.openWindow("https://youtu.be/PAvHeRGZ_lA");
+});
 
 // Installing the Service Worker
 self.addEventListener("install", async (event) => {
