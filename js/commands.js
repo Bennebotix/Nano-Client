@@ -13,7 +13,7 @@
     
     cli.extend('notif',function(data,cli){
         if (!window.Notification) {
-            console.log('Browser does not support notifications.');
+            alert('Browser does not support notifications.');
         } else {
             // check if permission is already granted
             if (Notification.permission === 'granted') {
@@ -32,10 +32,10 @@
                             icon: 'https://bit.ly/2DYqRrh',
                         });
                     } else {
-                        console.log('User blocked notifications.');
+                        alert('User blocked notifications.');
                     }
                 }).catch(function (err) {
-                    console.error(err);
+                    alert(err);
                 });
             }
         }
