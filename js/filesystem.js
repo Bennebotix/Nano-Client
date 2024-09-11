@@ -3,7 +3,7 @@
     cli.path = [];
 
     cli.filesystem = {
-        hi: () => alert('hi')
+        reload: () => window.reload()
     }
 
     cli.get_dir = function(path){
