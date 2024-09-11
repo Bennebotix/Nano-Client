@@ -4,6 +4,9 @@ const assets = [
   "/index.html",
   "/css/style.css",
   "/js/app.js",
+  "/js/cli.js",
+  "/js/commands.js",
+  "/js/filesystem.js",
   "/images/icon512_maskable.png",
   "/images/icon512_rounded.png",
 ]
