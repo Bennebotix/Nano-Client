@@ -69,6 +69,7 @@
     </div>
     `;
         document.body.appendChild(modal);
+        document.querySelector('textarea').focus();
     });
 
     cli.hiddenCommands.push('cd');
