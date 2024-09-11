@@ -87,15 +87,17 @@ CLI = {
 
     keyPress: function(event) {
 
-        var keyCode = event.which;
-        if(navigator.appName.indexOf("Microsoft") != -1)keyCode = event.keyCode;
+        if (this.typing) {
+            var keyCode = event.which;
+            if(navigator.appName.indexOf("Microsoft") != -1)keyCode = event.keyCode;
 
-        if(((keyCode >= 0x20) && (keyCode < 0x99)) || keyCode > 0xFF) {
-            this.enterChar(String.fromCharCode(keyCode));
-            this.renderCommandLine();
+            if(((keyCode >= 0x20) && (keyCode < 0x99)) || keyCode > 0xFF) {
+                this.enterChar(String.fromCharCode(keyCode));
+                this.renderCommandLine();
+            }
+
+            event.preventDefault();
         }
-
-        if(this.typing)event.preventDefault();
         return false;
 
     },
