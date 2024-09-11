@@ -8,7 +8,7 @@
 
     cli.get_dir = function(path){
         var current_dir = cli.filesystem;
-        for(index in path){
+        for(var index in path){
             if(typeof current_dir[path[index]] != "object")return false;
             current_dir = current_dir[path[index]];
         }
