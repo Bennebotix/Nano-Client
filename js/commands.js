@@ -1,7 +1,11 @@
 (function(cli){
 
-    cli.hiddenCommands = ['cls','motd','barn','test','reset','command_with_error','centered','line','list','mit','trash'];
+    cli.hiddenCommands = ['rebootServiceWorker', 'cls','motd','barn','test','reset','command_with_error','centered','line','list','mit','trash'];
 
+    cli.extend('rebootServiceWorker',function(data,cli){
+        unregisterServiceWorker();
+    })
+    
     cli.extend('help',function(data,cli){
 
         cli.nl().write('Following commands are available:').nl();
