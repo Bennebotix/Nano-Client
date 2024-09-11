@@ -28,12 +28,9 @@ self.addEventListener("fetch", fetchEvent => {
             registration.waiting.postMessage('skipWaiting');
             return new Response("", {headers: {"Refresh": "0"}});
         }
-  if (navigator.onLine) {
-  } else {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then(res => {
       return res || fetch(fetchEvent.request)
     })
-  )
   }
 })
