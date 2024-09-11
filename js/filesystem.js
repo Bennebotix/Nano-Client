@@ -39,7 +39,7 @@
     cli.hiddenCommands.push('exec');
 
     cli.extend('exec',function(command,cli){
-        var fileName = command.parametersText;
+        var filename = command.parametersText;
         if(cli.currentDir.hasOwnProperty(filename)){
             if(typeof cli.currentDir[filename] == 'function') {
                 cli.currentDir[filename]();
