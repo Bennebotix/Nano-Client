@@ -5,7 +5,7 @@
     cli.extend('rebootServiceWorker',function(data,cli){
         if (navigator.onLine) {
             serviceWorkerRegistration.unregister();
-            window.reload();
+            window.location.reload();
         } else {
             cli.write('Client is not online!');
         }
