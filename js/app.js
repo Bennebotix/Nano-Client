@@ -1,3 +1,5 @@
+document.body.innerHTML = '';
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker
