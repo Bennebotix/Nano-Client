@@ -1,1 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 
+}
+#cli_instance {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    background: #000;
+    margin: 0;
+    padding: 0;
+    color: #aaa;
+    font: normal 12pt monospace;
+    width: 100%;
+    height: 100%;
+    border: none;
+    white-space: pre-wrap;
+    word-break:break-all;
+    line-height: 1;
+    overflow: hidden;
+    position: relative;
+
+}
+
+#cli_instance .output {
+    position: absolute;
+    max-width: 100%;
+    min-height: 100%;
+    bottom: 1.5em;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    padding-top: 2em;
+}
+#cli_instance .input {
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    padding-bottom:0.5em;
+    background: #000;
+}
+
+
+
+#cli_instance .caret {
+    display: inline-block;
+    position: relative;
+}
+
+#cli_instance .caret:after {
+    display: block;
+    position: absolute;
+    box-shadow:inset 0 -2px;
+    content:' ';
+    bottom: 0;left: 0;right: 0;top: 0;
+    animation:blinker 1s infinite;
+    -webkit-animation:blinker 1s infinite;
+}
+
+#cli_instance b {
+    font: inherit;
+    color:#fff;
+}
+
+#cli_instance a {
+    color:#99c;
+}
+
+@-webkit-keyframes blinker {
+  0% { opacity: 0.0; }
+  1% { opacity: 1.0; }
+  49% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100%{ opacity: 0.0; }
+}
+
+@keyframes blinker {
+    0% { opacity: 0.0; }
+    1% { opacity: 1.0; }
+    49% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100%{ opacity: 0.0; }
+}
