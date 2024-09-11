@@ -6,8 +6,14 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-
 }
+
+#mobile {
+    opacity: 0;
+    top: -999999px;
+    position: absolute;
+}
+
 .cli_instance {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
