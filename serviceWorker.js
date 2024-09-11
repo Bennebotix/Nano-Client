@@ -1,14 +1,14 @@
-const megaBitz = "mega-bitz-v2"
+const megaBitz = "mega-bitz-v2.0"
 const assets = [
   "/",
   "/index.html",
+  "/images/icon512_maskable.png",
+  "/images/icon512_rounded.png",
   "/css/style.css",
-  "/js/app.js",
   "/js/cli.js",
   "/js/commands.js",
   "/js/filesystem.js",
-  "/images/icon512_maskable.png",
-  "/images/icon512_rounded.png",
+  "/js/app.js",
 ]
 
 self.addEventListener("install", installEvent => {
