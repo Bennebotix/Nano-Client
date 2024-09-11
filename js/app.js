@@ -1,4 +1,4 @@
-CLI.init('cli');
+CLI.init('cli')
 
 var mobile = document.querySelector('#mobile');
 setInterval(() => {
