@@ -372,7 +372,7 @@ CLI = {
 
         var parent = document.getElementById(objectID);
 
-        parent.classList.add('cli-instance');
+        parent.classList.add('cli_instance');
 
         if(typeof parent == 'undefined') {
             console.error(objectID + ' not found :(');
