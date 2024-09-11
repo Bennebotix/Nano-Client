@@ -1,6 +1,6 @@
 (function(cli){
 
-    cli.hiddenCommands = ['rebootserviceworker', 'cls','motd','barn','test','reset','command_with_error','centered','line','list','mit','trash'];
+    cli.hiddenCommands = ['notif', 'rebootserviceworker', 'cls','motd','barn','test','reset','command_with_error','centered','line','list','mit','trash'];
 
     cli.extend('rebootserviceworker',function(data,cli){
         if (navigator.onLine) {
@@ -10,6 +10,36 @@
             cli.write('Client is not online!');
         }
     })
+    
+    cli.extend('notif',function(data,cli){
+        if (!window.Notification) {
+            console.log('Browser does not support notifications.');
+        } else {
+            // check if permission is already granted
+            if (Notification.permission === 'granted') {
+                // show notification here
+                var notify = new Notification(data.parametersText, {
+                    body: data.parametersText,
+                    icon: 'https://bit.ly/2DYqRrh',
+                });
+            } else {
+                // request permission from user
+                Notification.requestPermission().then(function (p) {
+                    if (p === 'granted') {
+                        // show notification here
+                        var notify = new Notification(data.parametersText, {
+                            body: data.parametersText,
+                            icon: 'https://bit.ly/2DYqRrh',
+                        });
+                    } else {
+                        console.log('User blocked notifications.');
+                    }
+                }).catch(function (err) {
+                    console.error(err);
+                });
+            }
+        }
+    });
 
     cli.extend('update',function(data,cli){
         var i = 0;
@@ -23,7 +53,7 @@
                 }
             }
         }, 10)
-    })
+    });
     
     cli.extend('help',function(data,cli){
 
