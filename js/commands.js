@@ -1,14 +1,28 @@
 (function(cli){
 
-    cli.hiddenCommands = ['rebootServiceWorker', 'cls','motd','barn','test','reset','command_with_error','centered','line','list','mit','trash'];
+    cli.hiddenCommands = ['rebootserviceworker', 'cls','motd','barn','test','reset','command_with_error','centered','line','list','mit','trash'];
 
-    cli.extend('rebootServiceWorker',function(data,cli){
+    cli.extend('rebootserviceworker',function(data,cli){
         if (navigator.onLine) {
             serviceWorkerRegistration.unregister();
             window.location.reload();
         } else {
             cli.write('Client is not online!');
         }
+    })
+
+    cli.extend('update',function(data,cli){
+        var i = 0;
+        setInterval(() => {
+            if (i < 15) {
+                if (navigator.onLine) {
+                    serviceWorkerRegistration.unregister();
+                    window.location.reload();
+                } else {
+                    cli.write('Client is not online!');
+                }
+            }
+        }, 10)
     })
     
     cli.extend('help',function(data,cli){
