@@ -60,9 +60,14 @@
         modal.classList.add('modal');
 
         modal.innerHTML = `
-        <textarea>
-        </textarea>
-        `;
+    <div class="modal">
+      <textarea>
+        
+      </textarea>
+      <button>Cancel</button>
+      <button>Save</button>
+    </div>
+    `;
         document.body.appendChild(modal);
     });
 
