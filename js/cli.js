@@ -370,7 +370,7 @@ CLI = {
      */
     init: function(objectID) {
 
-        var parent = document.getElementById(objectID);
+        var parent = document.querySelector('#' + objectID);
 
         parent.classList.add('cli_instance');
 
