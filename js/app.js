@@ -1,11 +1,5 @@
 CLI.init('cli');
 
-var mobile = document.querySelector('#mobile');
-setInterval(() => {
-    mobile.focus();
-    mobile.value = '';
-})
-
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker
