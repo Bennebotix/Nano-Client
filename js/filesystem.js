@@ -3,6 +3,7 @@
     cli.path = [];
 
     cli.filesystem = {
+        hi: () => alert('hi')
     }
 
     cli.get_dir = function(path){
@@ -18,7 +19,7 @@
 
     cli.hiddenCommands.push('dir');
 
-    cli.extend('dir',function(command,cli){
+    cli.extend('ls',function(command,cli){
         cli.nl().write('Contents of C:\\'+cli.path.join('\\').toUpperCase()).nl();
         var files = [];
         for(var filename in cli.currentDir){
@@ -34,6 +35,17 @@
         console.log(files);
         cli.nl();
     });
+
+    cli.hiddenCommands.push('exec');
+
+    cli.extend('exec',function(command,cli){
+        else if(typeof cli.currentDir != 'undefined' && cli.currentDir.hasOwnProperty(command.parametersText) && typeof cli.currentDir[command.parametersText] == 'function'){
+            cli.path.push(command.parametersText.toLowerCase());
+            cli.currentDir = cli.get_dir(cli.path);
+        }
+        else cli.write('Could not find executable '+command.parametersText);
+        cli.commandline_prepend= 'C:\\'+cli.path.join('\\').toUpperCase()+'>';
+    }
 
     cli.hiddenCommands.push('cd');
 
