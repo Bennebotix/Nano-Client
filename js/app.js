@@ -1,4 +1,4 @@
-document.body.innerHTML = '';
+CLI.init('cli');
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
