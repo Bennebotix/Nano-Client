@@ -20,14 +20,14 @@ self.addEventListener("install", installEvent => {
 })
 
 self.addEventListener("fetch", fetchEvent => {
-  /*if (event.request.mode === "navigate" &&
+  if (event.request.mode === "navigate" &&
         event.request.method === "GET" &&
         registration.waiting &&
         (await clients.matchAll()).length < 2
         ) {
             registration.waiting.postMessage('skipWaiting');
             return new Response("", {headers: {"Refresh": "0"}});
-        }*/
+        }
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then(res => {
       return res || fetch(fetchEvent.request)
