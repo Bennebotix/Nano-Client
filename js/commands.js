@@ -16,7 +16,7 @@
         var title = notifData[0];
         var options = {
             body: notifData[1],
-            icon: notifData[2]
+            icon: ''
         };
         cli.notif(title, options);
     });
