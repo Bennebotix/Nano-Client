@@ -12,6 +12,7 @@ function registerServiceWorker() {
             if (navigator.onLine) {
                serviceWorkerUnregister = () => {
                  res.unregister();
+                 window.reload();
                };
             }
                      })
