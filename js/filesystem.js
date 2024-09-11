@@ -55,6 +55,7 @@
     cli.hiddenCommands.push('nano');
 
     cli.extend('nano',function(command,cli){
+        cli.typing = false;
         var modal = document.createElement('div');
         modal.classList.add('modal');
 
