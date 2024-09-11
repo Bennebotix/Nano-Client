@@ -36,7 +36,7 @@
         cli.nl();
     });
 
-    cli.hiddenCommands.push('exec');
+    /*cli.hiddenCommands.push('exec');
 
     cli.extend('exec',function(command,cli){
         var filename = command.parametersText;
@@ -46,7 +46,7 @@
             } else cli.write('"'+filename+'" is not an executable!');
         } else cli.write('Could not find executable: "'+filename+'"');
         cli.nl();
-    }
+    }*/
 
     cli.hiddenCommands.push('cd');
 
