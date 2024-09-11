@@ -50,7 +50,7 @@
             cli.write('Could not find executable: "'+filename+'"');
         }
         cli.nl();
-    }
+    });
 
     cli.hiddenCommands.push('cd');
 
