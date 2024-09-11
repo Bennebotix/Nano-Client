@@ -1,15 +1,21 @@
 CLI.init('cli');
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    navigator.serviceWorker
-      .register("/serviceWorker.js")
-      .then(res => {
-          console.log("service worker registered", res);      
-          if (navigator.onLine) {
-              //res.unregister();
-          }
-                   })
-      .catch(err => console.log("service worker not registered", err))
-  })
+var unregisterServiceWorker = () => {};
+
+function registerServiceWorker() {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker
+        .register("/serviceWorker.js")
+        .then(res => {
+            console.log("service worker registered", res);      
+            if (navigator.onLine) {
+               serviceWorkerUnregister = res.unregister;
+            }
+                     })
+        .catch(err => console.log("service worker not registered", err))
+    })
+  }
 }
+
+registerServiceWorker();
