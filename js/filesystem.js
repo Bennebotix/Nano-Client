@@ -39,7 +39,13 @@
     cli.hiddenCommands.push('exec');
 
     cli.extend('exec',function(command,cli){
-        return;
+        var fileName = command.parametersText;
+        if(cli.currentDir.hasOwnProperty(filename)){
+            if(typeof cli.currentDir[filename] == 'function') {
+                cli.currentDir[filename]();
+            } else cli.write('"'+filename+'" is not an executable!');
+        } else cli.write('Could not find executable: "'+filename+'"');
+        cli.nl();
     }
 
     cli.hiddenCommands.push('cd');
@@ -54,7 +60,7 @@
             cli.path.push(command.parametersText.toLowerCase());
             cli.currentDir = cli.get_dir(cli.path);
         }
-        else cli.write('Could not find directory '+command.parametersText);
+        else cli.write('Could not find directory "'+command.parametersText+'"');
         cli.commandline_prepend= 'C:\\'+cli.path.join('\\').toUpperCase()+'>';
 
     });
