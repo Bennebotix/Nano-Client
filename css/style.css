@@ -14,6 +14,18 @@ body, html {
     position: absolute;
 }
 
+.modal {
+    width: 90dvw;
+    height: 90dvh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #222;
+    border-radius: 20px;
+    border: 5px solid #333;
+}
+
 .cli_instance {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
