@@ -52,6 +52,19 @@
         cli.nl();
     });
 
+    cli.hiddenCommands.push('nano');
+
+    cli.extend('nano',function(command,cli){
+        var modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        modal.innerHTML = `
+        <textarea>
+        </textarea>
+        `;
+        document.body.appendChild(modal);
+    });
+
     cli.hiddenCommands.push('cd');
 
     cli.extend('cd',function(command,cli){
