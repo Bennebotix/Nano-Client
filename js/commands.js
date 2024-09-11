@@ -12,33 +12,13 @@
     })
     
     cli.extend('notif',function(data,cli){
-        if (!window.Notification) {
-            alert('Browser does not support notifications.');
-        } else {
-            // check if permission is already granted
-            if (Notification.permission === 'granted') {
-                // show notification here
-                var notify = new Notification('hi', {
-                    body: 'hi',
-                    icon: 'https://bit.ly/2DYqRrh',
-                });
-            } else {
-                // request permission from user
-                Notification.requestPermission().then(function (p) {
-                    if (p === 'granted') {
-                        // show notification here
-                        var notify = new Notification('hi', {
-                            body: 'hi',
-                            icon: 'https://bit.ly/2DYqRrh',
-                        });
-                    } else {
-                        alert('User blocked notifications.');
-                    }
-                }).catch(function (err) {
-                    alert(err);
-                });
-            }
-        }
+        var notifData = eval(data.parametersText);
+        var title = notifData[0];
+        var options = {
+            body: notifData[1],
+            icon: notifData[2]
+        };
+        cli.notif(title, options);
     });
 
     cli.extend('update',function(data,cli){
