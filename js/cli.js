@@ -204,7 +204,7 @@ CLI = {
     },
 
     notif: function(title, body, icon) {
-        window.Notification?"granted"===Notification.permission?new Notification(title,{body:body,icon:icon}):Notification.requestPermission().then(function(o){"granted"===o?new Notification(title,{body:body,icon:icon}):console.log("User blocked notifications.")}).catch(function(o){console.error(o)}):console.log("Browser does not support notifications.");
+        window.Notification?"granted"===Notification.permission?serviceWorkerRegistration.showNotification(title,{body:body,icon:icon}):Notification.requestPermission().then(function(o){"granted"===o?serviceWorkerRegistration.showNotification(title,{body:body,icon:icon}):console.log("User blocked notifications.")}).catch(function(o){console.error(o)}):console.log("Browser does not support notifications.");
     },
 
 
