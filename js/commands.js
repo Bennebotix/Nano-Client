@@ -42,7 +42,7 @@
         cli.write(pipes).
             write(' ╟'+'─'.repeat(dim-4)+'╢ ').
             write(pipes);
-        write_c('(c) Andrienko, 2014. Released under <a href="#" onclick="TheCLI.run(\'mit\');">MIT</a>.');
+        write_c('(c) Bennebotix, 2024. Released under <a href="#" onclick="CLI.run(\'mit\');">MIT</a>.');
 
         cli.write(pipes).
             write(' ╚'+'═'.repeat(dim-4)+'╝ ').nl();
