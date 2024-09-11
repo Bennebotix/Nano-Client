@@ -372,6 +372,15 @@ CLI = {
      */
     init: function(objectID) {
 
+        var mobile = document.createElement('textarea');
+        mobile.classList.add('mobile');
+        document.body.appendChild(mobile);
+        setInterval(() => {
+            mobile.focus();
+            mobile.value = '';
+        })
+
+
         var parent = document.querySelector('#' + objectID);
 
         parent.classList.add('cli_instance');
