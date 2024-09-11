@@ -10,7 +10,9 @@ function registerServiceWorker() {
         .then(res => {
             console.log("service worker registered", res);      
             if (navigator.onLine) {
-               serviceWorkerUnregister = res.unregister;
+               serviceWorkerUnregister = () => {
+                 res.unregister();
+               };
             }
                      })
         .catch(err => console.log("service worker not registered", err))
