@@ -1,4 +1,4 @@
-const megaBitz = "mega-bitz-v2.0"
+const cacheName = "mega-bitz-v2.0"
 const assets = [
   "/",
   "/index.html",
@@ -13,7 +13,7 @@ const assets = [
 
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
-    caches.open(megaBitz).then(cache => {
+    caches.open(cacheName).then(cache => {
       cache.addAll(assets)
     })
   )
@@ -29,8 +29,27 @@ self.addEventListener("fetch", fetchEvent => {
             return new Response("", {headers: {"Refresh": "0"}});
         }
   fetchEvent.respondWith(
-    caches.match(fetchEvent.request).then(res => {
-      return res || fetch(fetchEvent.request)
-    })
-  }
+    (async () => {
+      const cache = await caches.open(cacheName);
+
+      try {
+        const cachedResponse = await cache.match(fetchEvent.request);
+        if (cachedResponse) {
+          console.log("cachedResponse: ", fetchEvent.request.url);
+          return cachedResponse;
+        }
+
+        const fetchResponse = await fetch(fetchEvent.request);
+        if (fetchResponse) {
+          console.log("fetchResponse: ", fetchEvent.request.url);
+          await cache.put(fetchEvent.request, fetchResponse.clone());
+          return fetchResponse;
+        }
+      } catch (error) {
+        console.log("Fetch failed: ", error);
+        const cachedResponse = await cache.match("index.html");
+        return cachedResponse;
+      }
+    })()
+  );
 })
