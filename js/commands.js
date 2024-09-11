@@ -12,13 +12,7 @@
     })
     
     cli.extend('notif',function(data,cli){
-        var notifData = eval(data.parametersText);
-        var title = notifData[0];
-        var options = {
-            body: notifData[1],
-            icon: ''
-        };
-        cli.notif(title, options);
+        cli.notif(...eval(data.parametersText));
     });
 
     cli.extend('update',function(data,cli){
