@@ -372,6 +372,8 @@ CLI = {
 
         var parent = document.getElementById(objectID);
 
+        parent.classList.add('cli-instance');
+
         if(typeof parent == 'undefined') {
             console.error(objectID + ' not found :(');
             return false;
