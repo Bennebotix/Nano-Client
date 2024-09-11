@@ -29,6 +29,7 @@ body, html {
 }
 
 .modal > textarea {
+    outline: none;
     resize: none;
     width: 100%;
     height: 80%;
@@ -46,6 +47,10 @@ body, html {
     -ms-user-select: none;
     user-select: none;
     cursor: default;
+}
+
+.modal > textarea:focus {
+    outline: none;
 }
 
 .cli_instance {
