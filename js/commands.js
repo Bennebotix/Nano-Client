@@ -18,8 +18,8 @@
             // check if permission is already granted
             if (Notification.permission === 'granted') {
                 // show notification here
-                var notify = new Notification(data.parametersText, {
-                    body: data.parametersText,
+                var notify = new Notification('hi', {
+                    body: 'hi',
                     icon: 'https://bit.ly/2DYqRrh',
                 });
             } else {
@@ -27,8 +27,8 @@
                 Notification.requestPermission().then(function (p) {
                     if (p === 'granted') {
                         // show notification here
-                        var notify = new Notification(data.parametersText, {
-                            body: data.parametersText,
+                        var notify = new Notification('hi', {
+                            body: 'hi',
                             icon: 'https://bit.ly/2DYqRrh',
                         });
                     } else {
