@@ -3,7 +3,12 @@
     cli.hiddenCommands = ['rebootServiceWorker', 'cls','motd','barn','test','reset','command_with_error','centered','line','list','mit','trash'];
 
     cli.extend('rebootServiceWorker',function(data,cli){
-        unregisterServiceWorker();
+        if (navigator.onLine) {
+            serviceWorkerRegistration.unregister();
+            window.reload();
+        } else {
+            cli.write('Client is not online!');
+        }
     })
     
     cli.extend('help',function(data,cli){
