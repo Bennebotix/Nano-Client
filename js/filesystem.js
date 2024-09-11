@@ -17,9 +17,9 @@
 
     cli.currentDir = cli.filesystem;
 
-    cli.hiddenCommands.push('ls');
+    cli.hiddenCommands.push('dir');
 
-    cli.extend('ls',function(command,cli){
+    cli.extend('dir',function(command,cli){
         cli.nl().write('Contents of C:\\'+cli.path.join('\\').toUpperCase()).nl();
         var files = [];
         for(var filename in cli.currentDir){
