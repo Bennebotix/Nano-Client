@@ -15,6 +15,7 @@ body, html {
 }
 
 .modal {
+    z-index: 999;
     width: 90dvw;
     height: 90dvh;
     position: absolute;
@@ -27,6 +28,7 @@ body, html {
 }
 
 .cli_instance {
+    z-index: 1;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
