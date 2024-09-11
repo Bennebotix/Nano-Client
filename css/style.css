@@ -25,6 +25,7 @@ body, html {
     background-color: #222;
     border-radius: 20px;
     border: 5px solid #333;
+    padding: 10px;
 }
 
 .cli_instance {
