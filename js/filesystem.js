@@ -36,17 +36,21 @@
         cli.nl();
     });
 
-    /*cli.hiddenCommands.push('exec');
+    cli.hiddenCommands.push('exec');
 
     cli.extend('exec',function(command,cli){
         var filename = command.parametersText;
         if(cli.currentDir.hasOwnProperty(filename)){
             if(typeof cli.currentDir[filename] == 'function') {
                 cli.currentDir[filename]();
-            } else cli.write('"'+filename+'" is not an executable!');
-        } else cli.write('Could not find executable: "'+filename+'"');
+            } else {
+                cli.write('"'+filename+'" is not an executable!');
+            }
+        } else {
+            cli.write('Could not find executable: "'+filename+'"');
+        }
         cli.nl();
-    }*/
+    }
 
     cli.hiddenCommands.push('cd');
 
