@@ -1,4 +1,5 @@
 CLI.init('cli');
+
 var mobile = document.querySelector('#mobile');
 setInterval(() => {
     mobile.focus();
