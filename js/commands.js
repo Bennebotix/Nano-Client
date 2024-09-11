@@ -32,12 +32,11 @@
         cli.write(' ╔'+'═'.repeat(dim-4)+'╗ ').
             write(pipes);
 
-        write_c('Hello.');
+        write_c('Welcome.');
 
         cli.write(pipes);
 
-        write_c('I am the fake command-line interpreter,');
-        write_c('written in JavaScript.');
+        write_c('Written in JavaScript.');
         cli.write(pipes);
         write_c('Type <b>help</b> for list of commands.');
         cli.write(pipes).
@@ -47,7 +46,7 @@
 
         cli.write(pipes).
             write(' ╚'+'═'.repeat(dim-4)+'╝ ').nl();
-        write_c('The <a href="https://github.com/andrienko/js_cli">GitHub repository</a> is there for you to hack ;-)',' ');
+        write_c('The <a href="https://github.com/Bennebotix/Mega-Bitz-v2.0">GitHub repository</a>',' ');
     });
     
     cli.extend('mit',function(data,cli){
