@@ -1,4 +1,4 @@
-const megaBitz = "mega-bitz-v2.0";
+const megaBitz = "mega-bitz-v2.0"
 const assets = [
   "/",
   "/index.html",
