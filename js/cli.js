@@ -64,6 +64,8 @@ CLI = {
     output: null,
     input: null,
 
+    typing: true,
+
     tagsAllowed: false,
     caseSensitiveCommands: false,
 
@@ -93,7 +95,7 @@ CLI = {
             this.renderCommandLine();
         }
 
-        event.preventDefault();
+        if(this.typing)event.preventDefault();
         return false;
 
     },
