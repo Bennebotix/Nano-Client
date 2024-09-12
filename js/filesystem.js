@@ -60,9 +60,11 @@
 
         modal.innerHTML = `
     <div class="modal">
-      <textarea>
-        
-      </textarea>
+        <pre class="ft-syntax-highlight" data-syntax="html" data-syntax-theme="one-dark">
+          <code contenteditable="true">
+          </code>
+        </pre>
+
       <button>Cancel</button>
       <button>Save</button>
     </div>
