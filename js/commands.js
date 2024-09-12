@@ -64,6 +64,7 @@
         cli.write(pipes);
 
         write_c('Written in JavaScript.');
+        write_c('Made with Mega Bitz v2.');
         cli.write(pipes);
         write_c('Type <b>help</b> for list of commands.');
         cli.write(pipes).
