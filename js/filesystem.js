@@ -3,7 +3,11 @@
     cli.path = [];
 
     cli.filesystem = {
-        reload: () => window.reload()
+        user: {
+            downloads: {
+            }
+        },
+        reload: () => window.location.reload()
     }
 
     cli.get_dir = function(path){
