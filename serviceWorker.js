@@ -1,4 +1,4 @@
-const cacheName = 'mega-bitz-v2.0'
+const cacheName = 'nano-client'
 const assets = [
   "/",
   "/index.html",
