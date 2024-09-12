@@ -58,12 +58,10 @@
 
         cli.write(' ╔'+'═'.repeat(dim-4)+'╗ ').
             write(pipes);
-
         write_c('Welcome.');
-
         cli.write(pipes);
-
         write_c('Written in JavaScript.');
+        cli.write(pipes);
         write_c('Made with Mega Bitz v2.');
         cli.write(pipes);
         write_c('Type <b>help</b> for list of commands.');
