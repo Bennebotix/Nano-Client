@@ -75,6 +75,7 @@
     cli.hiddenCommands.push('cd');
 
     cli.extend('cd',function(command,cli){
+        command.parametersText = command.parametersText.replaceAll('/', '\\');
 
         if(command.parametersText == '..'){
             cli.path.pop();
