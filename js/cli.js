@@ -83,6 +83,43 @@ CLI = {
 
     zerojs:null,
 
+    boilerplater: {
+        '.txt': '',
+        '.js': '',
+        '.html': `
+        <!DOCTYPE html>
+            
+            <html lang="en">
+                <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+            
+                    <title>[Title]</title>
+                    <meta name="description" content="[Description]">
+                    <meta name="author" content="[Name]">
+            
+                    <meta property="og:title" content="[Title]">
+                    <meta property="og:type" content="website">
+                    <meta property="og:url" content="[URL]">
+                    <meta property="og:description" content="[ Description]">
+                    <meta property="og:image" content="[Image: .png]">
+            
+                    <link rel="icon" href="[Image: .ico]">
+                    <link rel="icon" href="[Image: .svg]" type="image/svg+xml">
+                    <link rel="apple-touch-icon" href="[Image: .png]">
+            
+                    <link rel="stylesheet" href="[CSS File]" />
+            
+              </head>
+            
+              <body>
+                <script src="[JS File]" type="text/javascript"></script>
+              </body>
+            </html>
+        `,
+        '.css': ''
+    },
+
     ctrlIsDown: false,
 
     keyPress: function(event) {
