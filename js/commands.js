@@ -72,7 +72,7 @@
 
         cli.write(pipes).
             write(' ╚'+'═'.repeat(dim-4)+'╝ ').nl();
-        write_c('The <a href="https://github.com/Bennebotix/Mega-Bitz-v2.0">GitHub repository</a>',' ');
+        write_c('The <a href="https://github.com/Bennebotix/Nano-Client">GitHub repository</a>',' ');
     });
     
     cli.extend('mit',function(data,cli){
