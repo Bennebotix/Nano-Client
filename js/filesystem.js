@@ -29,7 +29,7 @@
         for(var filename in cli.currentDir){
             if(cli.currentDir.hasOwnProperty(filename)){
                 if(typeof cli.currentDir[filename] == 'function')files.push(filename);
-                else cli.write('['+filename.toUpperCase()+']');
+                else cli.write('['+filename+']');
             }
         }
         for(var indx in files){
@@ -44,15 +44,10 @@
 
     cli.extend('exec',function(command,cli){
         var filename = command.parametersText;
-        if(cli.currentDir.hasOwnProperty(filename)){
-            if(typeof cli.currentDir[filename] == 'function') {
-                cli.currentDir[filename]();
-            } else {
-                cli.write('"'+filename+'" is not an executable!');
-            }
-        } else {
-            cli.write('Could not find executable: "'+filename+'"');
-        }
+        if(cli.currentDir.hasOwnProperty(filename)) {
+            if(typeof cli.currentDir[filename] == 'function') cli.currentDir[filename]();
+            else cli.write('"'+filename+'" is not an executable!');
+        } else cli.write('Could not find executable: "'+filename+'"');
         cli.nl();
     });
 
@@ -79,24 +74,23 @@
     cli.hiddenCommands.push('cd');
 
     cli.extend('cd',function(command,cli){
-        command.parametersText = command.parametersText.replaceAll('/', '\\');
 
-        if(command.parametersText == '..'){
-            cli.path.pop();
-            cli.currentDir = cli.get_dir(cli.path);
-        }
-        else if(typeof cli.currentDir != 'undefined' && cli.currentDir.hasOwnProperty(command.parametersText.toLowerCase()) && typeof cli.currentDir[command.parametersText.toLowerCase()] == 'object'){
-            cli.path.push(command.parametersText.toLowerCase());
-            cli.currentDir = cli.get_dir(cli.path);
-        }
-        else cli.write('Could not find directory "'+command.parametersText+'"');
-        cli.commandline_prepend= 'C:\\'+cli.path.join('\\').toUpperCase()+'>';
+        // "command.parametersText" is entire text for params
+        // Example: "cmd 1 2", "command.parametersText" would be "1 2"
+
+        // "cli.path.pop()" Go Back
+
+        // "cli.currentDir" is the filesystem variable
+
+        // "cli.path" is an arr like "['user', 'downloads']"
+        
+        cli.commandline_prepend= 'C:\\'+cli.path.join('\\')+'>';
 
     });
 
     cli.hiddenCommands.push('path');
     cli.extend('path',function(command,cli){
-        cli.write(cli.path.join('\\').toUpperCase());
+        cli.write(cli.path.join('\\'));
 
     });
 })(CLI);
