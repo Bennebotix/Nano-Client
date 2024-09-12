@@ -54,24 +54,29 @@
     cli.hiddenCommands.push('nano');
 
     cli.extend('nano',function(command,cli){
-        cli.typing = false;
-        var modal = document.createElement('div');
-        modal.classList.add('modal');
-
-        modal.innerHTML = `
-    <div class="modal">
-        <pre class="ft-syntax-highlight" data-syntax="html" data-syntax-theme="one-dark">
-          <code contenteditable="true">
-          <!-- Code Here -->
-          </code>
-        </pre>
-
-      <button>Cancel</button>
-      <button>Save</button>
-    </div>
-    `;
-        document.body.appendChild(modal);
-        document.querySelector('textarea').focus();
+        if (command.parametersText.split(' ').length == 1) {
+            cli.typing = false;
+            var modal = document.createElement('div');
+            modal.classList.add('modal');
+    
+            var fileExtension = command.parametersText.match(/\.(txt|js|html|css)/i);
+    
+            modal.innerHTML = `
+                <div class="modal">
+                    <pre class="ft-syntax-highlight" data-syntax="html" data-syntax-theme="one-dark">
+                        <code contenteditable="true">
+                            ${cli.boilerplates[fileExtension]}
+                        </code>
+                    </pre>
+    
+                    <button>Cancel</button>
+                    <button>Save</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            document.querySelector('textarea').focus();
+        } else {
+        }
     });
 
     cli.hiddenCommands.push('cd');
