@@ -83,7 +83,7 @@ CLI = {
 
     zerojs:null,
 
-    boilerplater: {
+    boilerplates: {
         '.txt': '',
         '.js': '',
         '.html': `
