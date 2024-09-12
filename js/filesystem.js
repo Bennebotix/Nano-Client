@@ -67,7 +67,7 @@
                 <div class="modal">
                     <pre class="ft-syntax-highlight" data-syntax="html" data-syntax-theme="one-dark">
                         <code contenteditable="true">
-                            ${cli.boilerplates[fileExtension]}
+                            ${cli.boilerplates[fileExtension].stripTags()}
                         </code>
                     </pre>
     
