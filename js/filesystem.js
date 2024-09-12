@@ -62,6 +62,7 @@
     <div class="modal">
         <pre class="ft-syntax-highlight" data-syntax="html" data-syntax-theme="one-dark">
           <code contenteditable="true">
+          <!-- Code Here -->
           </code>
         </pre>
 
