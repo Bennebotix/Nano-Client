@@ -59,9 +59,7 @@
             var modal = document.createElement('div');
             modal.classList.add('modal');
     
-            var fileExtension = command.parametersText.match(/\.(txt|js|html|css)/i);
-
-            alert(fileExtension);
+            var fileExtension = command.parametersText.match(/\.(txt|js|html|css)/i)[0];
     
             modal.innerHTML = `
                 <div class="modal">
