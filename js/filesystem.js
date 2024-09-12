@@ -80,7 +80,7 @@
 
         // "cli.path.pop()" Go Back
 
-        // "cli.currentDir" is the filesystem variable
+        // "cli.currentDir" is the filesystem object
 
         // "cli.path" is an arr like "['user', 'downloads']"
         
