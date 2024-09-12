@@ -84,9 +84,9 @@ CLI = {
     zerojs:null,
 
     boilerplates: {
-        '.txt': '',
-        '.js': '',
-        '.html': `
+        'txt': '',
+        'js': '',
+        'html': `
         <!DOCTYPE html>
             
             <html lang="en">
@@ -117,7 +117,7 @@ CLI = {
               </body>
             </html>
         `,
-        '.css': ''
+        'css': ''
     },
 
     ctrlIsDown: false,
