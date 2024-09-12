@@ -1,6 +1,6 @@
 (function(cli){
 
-    cli.path = [];
+    cli.path = new PathObject("/root/");
 
     cli.filesystem = {
         user: {
@@ -93,8 +93,9 @@
         // "cli.currentDir" is the filesystem object
 
         // "cli.path" is an arr like "['user', 'downloads']"
+        cli.path.applyRelative(command.parametersText)
         
-        cli.commandline_prepend= 'C:\\'+cli.path.join('\\')+'>';
+        cli.commandline_prepend= 'C:' + cli.path.toString().replace("/", "\\") + '>';
 
     });
 
