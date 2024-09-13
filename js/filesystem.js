@@ -65,11 +65,13 @@
     
             modal.innerHTML = `
                 <div class="modal">
-                    <pre class="ft-syntax-highlight" data-syntax="html" data-syntax-theme="one-dark">
-                        <code contenteditable="true">
-                            ${cli.boilerplates[fileExtension].stripTags()}
-                        </code>
+                    <textarea id="editing" oninput="syntax(this.value);">${cli.boilerplates[fileExtension]}</textarea>
+
+                    <pre id="highlighting" aria-hidden="true">
+                        <code class="language-html" id="highlighting-content"></code>
                     </pre>
+
+                    
     
                     <button>Cancel</button>
                     <button>Save</button>
