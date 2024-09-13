@@ -1,4 +1,4 @@
-CLI.init('cli');
+CLI = new CLIClass.init('cli');
 
 var serviceWorkerRegistration;
 
