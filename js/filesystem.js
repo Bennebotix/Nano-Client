@@ -24,7 +24,7 @@
     cli.hiddenCommands.push('ls');
 
     cli.extend('ls',function(command,cli){
-        cli.nl().write('Contents of ' + cli.path.toString().replace("/", "\\").toUpperCase()).nl();
+        cli.nl().write('Contents of ' + cli.path.toString().replace("\\", "/").toUpperCase()).nl();
         var files = [];
         for(var filename in cli.currentDir){
             if(cli.currentDir.hasOwnProperty(filename)){
@@ -96,7 +96,7 @@
         // "cli.path" is an arr like "['user', 'downloads']"
         cli.path.applyRelative(command.parametersText)
         
-        cli.commandline_prepend= cli.path.toString().replace("\\", "/") + ':~ >';
+        cli.commandline_prepend= cli.path.toString().replace("\\", "/") + ' >';
 
     });
 
