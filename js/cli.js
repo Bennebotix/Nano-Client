@@ -73,7 +73,7 @@ CLI = {
     commandline_history: [],
 
     caret_pos: -1,
-    commandline_prepend: 'root/$:>',
+    commandline_prepend: '/root:~ >',
 
     strings:{
         notfound:'{0}:command not found',
