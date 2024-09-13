@@ -54,7 +54,7 @@
     cli.hiddenCommands.push('nano');
 
     cli.extend('nano',function(command,cli){
-        if (command.parametersText.split(' ').length == 1) {
+        if (command.parametersText.split(' ').length == 1 && command.parametersText) {
             cli.typing = false;
             var modal = document.createElement('div');
             modal.classList.add('modal');
