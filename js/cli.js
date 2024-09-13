@@ -458,7 +458,9 @@ CLI = {
         this.input = input;
 
         parent.onfocus = function(e) {
-            e.blur();
+            if (this.typing) {
+                e.blur();
+            }
         };
 
         this.renderCommandLine();
