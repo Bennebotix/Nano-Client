@@ -56,7 +56,7 @@ var indexOf = function(haystack,needle){
     return window.indexOf(haystack,needle);
 };
 
-class CLI {
+class CLIClass {
 
     parent = null
 
