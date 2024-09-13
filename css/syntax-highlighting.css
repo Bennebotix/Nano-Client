@@ -19,7 +19,7 @@
 
 #editing, #highlighting {
   /* In the same place */
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
 }
