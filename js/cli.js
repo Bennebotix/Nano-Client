@@ -469,8 +469,8 @@ CLI = {
 
         var that = this;
 
-        document.onkeypress = function(event) {return that.keyPress(event);};
-        document.onkeydown = function(event) {return that.keyDown(event);};
+        if (this.typing) document.onkeypress = function(event) {return that.keyPress(event);};
+        if (this.typing) document.onkeydown = function(event) {return that.keyDown(event);};
 
         return true;
     },
