@@ -228,7 +228,7 @@ class CLIClass {
             var command = commands.command;
     
             var commons = this.getSuggestion(command,
-                typeof this.hints[command] == 'function'?this.hints[command](commands,this) =this.commands
+                typeof this.hints[command] == 'function'?this.hints[command](commands,this) : this.commands
             );
     
             if(typeof commons == 'object'){
