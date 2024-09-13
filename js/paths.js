@@ -1,5 +1,6 @@
 class PathObject {
   pathArray;
+  home;
 
   #processPath(p) {
     // Process a path input
@@ -14,11 +15,26 @@ class PathObject {
 
   applyRelative(relative) {
     var rel = this.#processPath(relative);
-    if (rel.length > 0 && rel[0] == ".") {
+
+    // Check absolute
+    if (typeof relative == "string" && relative.startsWith("/")) {
+      this.pathArray = rel;
+      // console.log(this.pathArray);
+
+      // Check home
+    } else if (rel.length > 0 && rel[0] == "~") {
       rel.shift();
+      this.pathArray = this.home.concat(rel);
+
+    } else {
+
+
+      if (rel.length > 0 && rel[0] == ".") {
+        rel.shift();
+      }
+      // join
+      this.pathArray = this.pathArray.concat(rel);
     }
-    // join
-    this.pathArray = this.pathArray.concat(rel);
 
     // process
     for (var i = 0; i < this.pathArray.length; i++) {
@@ -37,12 +53,20 @@ class PathObject {
     }
   }
 
-  constructor(path, root = "/") {
+  constructor(path, root = "/", home = "") {
     // Path: string, array; Root: for relative only
+
+    if (home === "") {
+      this.home = this.#processPath(root);
+    } else {
+      this.home = this.#processPath(home);
+    }
+
     let pPath = this.#processPath(path);
 
     if (pPath.length > 0 && typeof path == "string" && path.startsWith("/")) {
       this.pathArray = pPath;
+      this.applyRelative(".");
     } else {
       this.pathArray = this.#processPath(root);
       this.applyRelative(pPath); // Apply relative from root
