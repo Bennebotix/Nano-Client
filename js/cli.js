@@ -332,7 +332,7 @@ class CLIClass {
         }
     }
 
-    hints: {}
+    hints = {}
     processors = {
         'default': function(commandLine,cli){
             cli.write(cli.strings.notfound.format(commandLine.command.stripTags(this.tagsAllowed)));
