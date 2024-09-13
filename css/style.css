@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 body, html {
     margin: 0;
     padding: 0;
@@ -26,19 +27,6 @@ body, html {
     border-radius: 20px;
     border: 5px solid #333;
     padding: 10px;
-}
-
-.modal > div > textarea {
-    border: #333;
-    outline: none;
-    resize: none;
-    white-space: pre-wrap;
-    word-break:break-all;
-    line-height: 1;
-}
-
-.modal > div > textarea:focus {
-    outline: none;
 }
 
 .cli_instance {
