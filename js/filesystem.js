@@ -1,6 +1,6 @@
 (function(cli){
 
-    cli.path = new PathObject("/root/");
+    cli.path = new PathObject("/root");
 
     cli.filesystem = {
         user: {
