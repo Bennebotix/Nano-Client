@@ -56,24 +56,24 @@ var indexOf = function(haystack,needle){
     return window.indexOf(haystack,needle);
 };
 
-CLI = {
+class CLI {
 
-    parent: null,
+    parent = null,
 
-    lastWrittenText: '',
-    output: null,
-    input: null,
+    lastWrittenText = '',
+    output = null,
+    input = null,
 
-    typing: true,
+    typing = true,
 
-    tagsAllowed: false,
-    caseSensitiveCommands: false,
+    tagsAllowed = false,
+    caseSensitiveCommands = false,
 
-    commandline: '',
-    commandline_history: [],
+    commandline = '',
+    commandline_history = [],
 
-    caret_pos: -1,
-    commandline_prepend: '/root:~ >',
+    caret_pos = -1,
+    commandline_prepend = '/root:~ >',
 
     strings:{
         notfound:'{0}:command not found',
@@ -83,7 +83,7 @@ CLI = {
 
     zerojs:null,
 
-    boilerplates: {
+    boilerplates = {
         'txt': '',
         'js': '',
         'html': `
@@ -120,9 +120,9 @@ CLI = {
         'css': ''
     },
 
-    ctrlIsDown: false,
+    ctrlIsDown = false,
 
-    keyPress: function(event) {
+    keyPress = function(event) {
 
         if (this.typing) {
             var keyCode = event.which;
@@ -139,7 +139,7 @@ CLI = {
 
     },
 
-    keyDown: function(event) {
+    keyDown = function(event) {
 
         if(event.keyCode == 8)this.erase();
         else if(event.keyCode == 33)this.scrollUp();
@@ -159,40 +159,40 @@ CLI = {
         if([8, 9, 13].indexOf(event.keyCode) != -1)return false;
     },
 
-    history_step:0,
+    history_step = 0,
 
-    historyNext: function() {
+    historyNext = function() {
         if(this.history_step>0)this.history_step-=1;
         var prev = this.commandline_history[this.commandline_history.length - this.history_step];
         if(typeof prev != 'undefined')this.commandline = prev;
         console.log(this.history_step);
     },
 
-    historyPrev: function() {
+    historyPrev = function() {
         if(this.history_step<this.commandline_history.length)this.history_step+=1;
         var prev = this.commandline_history[this.commandline_history.length - this.history_step];
         if(typeof prev != 'undefined')this.commandline = prev;
         console.log(this.history_step);
     },
 
-    posBottom:0,
+    posBottom = 0,
 
-    scrollDown:function(){
+    scrollDown = function(){
         this.posBottom-=1;
         if(this.posBottom<0)this.posBottom=0;
         this.scrollUpdate();
     },
 
-    scrollUp:function(){
+    scrollUp = function(){
         this.posBottom+=1;
         this.scrollUpdate();
     },
 
-    scrollUpdate:function(){
+    scrollUpdate = function(){
         this.output.style.bottom = (-this.posBottom*1.5+1.5)+"em";
     },
 
-    enter: function() {
+    enter = function() {
 
         var index = indexOf(this.commandline_history,this.commandline);
         if(index!=-1)this.commandline_history.splice(index,1);
@@ -205,7 +205,7 @@ CLI = {
 
     },
 
-    getSuggestion:function(singleCommand,choice){
+    getSuggestion = function(singleCommand,choice){
 
         var acc = [];
 
@@ -221,14 +221,14 @@ CLI = {
 
     },
 
-    suggest: function() {
+    suggest = function() {
         if(this.commandline.trim() == '')return;
 
         var commands = this.parseCommand(this.commandline);
         var command = commands.command;
 
         var commons = this.getSuggestion(command,
-            typeof this.hints[command] == 'function'?this.hints[command](commands,this):this.commands
+            typeof this.hints[command] == 'function'?this.hints[command](commands,this) =this.commands
         );
 
         if(typeof commons == 'object'){
@@ -240,7 +240,7 @@ CLI = {
 
     },
 
-    notif: function(title, body, icon) {
+    notif = function(title, body, icon) {
         window.Notification?"granted"===Notification.permission?serviceWorkerRegistration.showNotification(title,{body:body,icon:icon}):Notification.requestPermission().then(function(o){"granted"===o?serviceWorkerRegistration.showNotification(title,{body:body,icon:icon}):console.log("User blocked notifications.")}).catch(function(o){console.error(o)}):console.log("Browser does not support notifications.");
     },
 
@@ -251,7 +251,7 @@ CLI = {
      * @param {Boolean} [noBreak] Whether the new line should be created
      * @param {Boolean} [noRepeat] Whether
      */
-    write: function(text, noBreak,noRepeat) {
+    write = function(text, noBreak,noRepeat) {
         if(noRepeat == true && this.lastWrittenText == text)return;
         this.lastWrittenText = text;
         if(!noBreak)text += '\n';
@@ -264,12 +264,12 @@ CLI = {
     },
 
     /** Simply writes a new line */
-    nl: function() {
+    nl = function() {
         return this.write('');
     },
 
     /** Clears the console */
-    clear: function() {
+    clear = function() {
         this.output.innerHTML = '';
         this.posBottom=0;
         this.scrollUpdate();
@@ -280,7 +280,7 @@ CLI = {
      * Run command. This command processes user input.
      * @param {String} commandline The string to be processed as if it was inputted by user.
      */
-    run: function(commandline) {
+    run = function(commandline) {
         commandline = commandline.trim();
         if(commandline == '')return;
 
@@ -310,7 +310,7 @@ CLI = {
         }
     },
 
-    commands: {
+    commands = {
         clear: function(data, cli) {
             cli.clear();
         },
@@ -334,8 +334,8 @@ CLI = {
     },
 
     hints: {},
-    processors: {
-        'default':function(commandLine,cli){
+    processors = {
+        'default': function(commandLine,cli){
             cli.write(cli.strings.notfound.format(commandLine.command.stripTags(this.tagsAllowed)));
         }
     },
@@ -345,7 +345,7 @@ CLI = {
      * @param {String} text
      * @return {Object}
      */
-    parseCommand: function(text) {
+    parseCommand = function(text) {
 
         var parameters = text.match(/".*"|\S+/ig);
         var command = parameters[0].toLower(this.caseSensitiveCommands);
@@ -360,22 +360,22 @@ CLI = {
 
     },
 
-    caretBack: function() {
+    caretBack = function() {
         if(this.caret_pos < 0)this.caret_pos = this.commandline.length;
         if(this.caret_pos > 0)this.caret_pos--;
     },
-    caretNext: function() {
+    caretNext = function() {
         if(this.caret_pos <= this.commandline.length && this.caret_pos >= 0)this.caret_pos++;
         if(this.caret_pos >= this.commandline.length)this.caret_pos = -1;
     },
-    caretEnd: function() {
+    caretEnd = function() {
         this.caret_pos = -1;
     },
-    caretHome: function() {
+    caretHome = function() {
         this.caret_pos = 0;
     },
 
-    enterChar: function(char) {
+    enterChar = function(char) {
         if(this.caret_pos != -1) {
             this.commandline = this.commandline.substr(0, this.caret_pos) + char + this.commandline.substr(this.caret_pos);
             this.caretNext();
@@ -383,7 +383,7 @@ CLI = {
         else this.commandline += char;
     },
 
-    erase: function() {
+    erase = function() {
         if(this.caret_pos != -1) {
             this.commandline = this.commandline.substr(0, this.caret_pos - 1) + this.commandline.substr(this.caret_pos);
             this.caretBack();
@@ -391,14 +391,14 @@ CLI = {
         else this.commandline = this.commandline.substring(0, this.commandline.length - 1);
     },
 
-    del: function() {
+    del = function() {
         if(this.caret_pos != -1) {
             this.commandline = this.commandline.substr(0, this.caret_pos) + this.commandline.substr(this.caret_pos + 1);
             if(this.caret_pos >= this.commandline.length)this.caret_pos = -1;
         }
     },
 
-    renderCommandLine: function() {
+    renderCommandLine = function() {
         if(this.caret_pos == -1 || this.commandline.trim() == '')this.input.innerHTML = this.commandline_prepend + this.commandline.stripTags() + '<span class="caret"> </span>';
         else {
             var before = this.commandline.substr(0, this.caret_pos).stripTags();
@@ -413,7 +413,7 @@ CLI = {
      * @param objectID
      * @returns {boolean}
      */
-    init: function(objectID) {
+    init = function(objectID) {
 
         var mobile = document.createElement('textarea');
         mobile.classList.add('mobile');
@@ -479,7 +479,7 @@ CLI = {
      * Calculate the number of characteds that is (by default) can be fitted into a single line.
      * @returns {number}
      */
-    calculateDim: function() {
+    calculateDim = function() {
         var tempSpan = document.createElement('span');
         tempSpan.innerHTML = "M".repeat(20);    // Black magic
         this.output.appendChild(tempSpan);
@@ -497,7 +497,7 @@ CLI = {
      * user the list of variants + adds common symbols to user input and, if single value is returned, user input is
      * replaced with it)
      */
-    extend: function(name, callback, suggest) {
+    extend = function(name, callback, suggest) {
         name = name.toLower(this.caseSensitiveCommands);
         this.commands[name] = callback;
         if(typeof suggest == 'function')this.hints[name] = suggest;
@@ -509,7 +509,7 @@ CLI = {
      * @param {String} id And id of processor. The callback will be stored in TheCLI.processors[id].
      * @param {Function} callback The function to process input. If it returns false - the next processor will be called
      */
-    addProcessor: function(id,callback){
+    addProcessor = function(id,callback){
         this.processors[id] = callback;
     }
 };
