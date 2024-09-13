@@ -419,8 +419,10 @@ CLI = {
         mobile.classList.add('mobile');
         document.body.appendChild(mobile);
         setInterval(() => {
-            if(this.typing) mobile.focus();
-            mobile.value = '';
+            if (this.typing) {
+                mobile.focus();
+                mobile.value = '';
+            }
         })
 
 
