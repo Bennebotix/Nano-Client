@@ -96,7 +96,7 @@
         // "cli.path" is an arr like "['user', 'downloads']"
         cli.path.applyRelative(command.parametersText)
         
-        cli.commandline_prepend= 'C:' + cli.path.toString().replace("\\", "/") + '>';
+        cli.commandline_prepend= 'C:' + cli.path.toString().replace("\\", "/") + ':~ >';
 
     });
 
