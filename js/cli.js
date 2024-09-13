@@ -319,7 +319,7 @@ class CLIClass {
             },
             motd: function(data, cli) {
                 cli.clear();
-                cli.write('<a href="https://github.com/Bennebotix/Mega-Bitz">CLI [version 1.2.4000]</a>')
+                cli.write('<a href="https://github.com/Bennebotix/Mega-Bitz">CLI [version 1.0]</a>')
                     .nl()
                     .write('Type <b>list</b> to get list of commands available')
                     .nl();
