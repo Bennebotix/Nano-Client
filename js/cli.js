@@ -423,7 +423,7 @@ CLI = {
                 mobile.focus();
                 mobile.value = '';
             }
-        })
+        });
 
 
         var parent = document.querySelector('#' + objectID);
