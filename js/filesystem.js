@@ -24,7 +24,7 @@
     cli.hiddenCommands.push('ls');
 
     cli.extend('ls',function(command,cli){
-        cli.nl().write('Contents of C:\\'+cli.path.join('\\').toUpperCase()).nl();
+        cli.nl().write('Contents of C:' + cli.path.toString().replace("/", "\\").toUpperCase()).nl();
         var files = [];
         for(var filename in cli.currentDir){
             if(cli.currentDir.hasOwnProperty(filename)){
@@ -101,7 +101,8 @@
 
     cli.hiddenCommands.push('path');
     cli.extend('path',function(command,cli){
-        cli.write(cli.path.join('\\'));
+        // Alias: pwd?
+        cli.write(cli.path.toString().replace("/", "\\"));
 
     });
 })(CLI);
