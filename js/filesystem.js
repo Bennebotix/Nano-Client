@@ -60,8 +60,6 @@
             modal.classList.add('modal');
     
             var fileExtension = command.parametersText.match(/\.(txt|js|html|css)/i)[1];
-
-            alert(fileExtension);
     
             modal.innerHTML = `
                 <div class="modal">
