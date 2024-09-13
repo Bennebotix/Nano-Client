@@ -65,14 +65,15 @@
     
             modal.innerHTML = `
                 <div class="modal">
-                    <textarea id="editing" oninput="syntax(this.value);">${cli.boilerplates[fileExtension]}</textarea>
 
-                    <pre id="highlighting" aria-hidden="true">
-                        <code class="language-html" id="highlighting-content"></code>
-                    </pre>
-
-                    
-    
+                    <div style="height: 200px;">
+                        <textarea placeholder="Enter HTML Source Code" id="editing" spellcheck="false" oninput="highlight(this.value); sync_scroll(this);" onscroll="sync_scroll(this);" onkeydown="check_tab(this, event);"></textarea>
+                        <pre id="highlighting" aria-hidden="true">
+                            <code class="language-html highlight">
+                            </code>
+                        </pre>
+                    </div>
+                
                     <button>Cancel</button>
                     <button>Save</button>
                 </div>
