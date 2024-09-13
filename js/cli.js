@@ -57,7 +57,6 @@ var indexOf = function(haystack,needle){
 };
 
 class CLIClass {
-
     parent = null
 
     lastWrittenText = ''
@@ -75,7 +74,7 @@ class CLIClass {
     caret_pos = -1
     commandline_prepend = '/root:~ >'
 
-    strings:{
+    strings = {
         notfound:'{0}:command not found'
         anerror:'{0}: an error occurred\n{1}',
         errorproc:'Processor "{0}": an error occurred: \n{1}'
