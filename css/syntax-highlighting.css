@@ -30,6 +30,7 @@
 #editing {
   z-index: 1;
 }
+
 #highlighting {
   z-index: 0;
 }
@@ -38,7 +39,7 @@
 /* Make textarea almost completely transparent */
 
 #editing {
-  color: transparent;
+  color: white;
   background: transparent;
   caret-color: white; /* Or choose your favourite color */
 }
