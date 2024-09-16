@@ -323,9 +323,22 @@ class CLIClass {
                     list+=' '+ command;
                 }
                 cli.write(list);
+            },
+            link: function (data, cli) {
+                let args = data.parameters;
+                if (args.length !== 2) {
+                    throw new ValueError("Link only accepts two arguments (orignal name, link name)");
+                }
+                if (!(args[0] in cli.commands)) {
+                    throw new ValueError("Nonexistent command to link.");                 
+                }
+                this.link(args[0], args[1]);
+                
             }
+                
         }
-    
+        
+        this.aliases = {}
         this.hints = {}
         this.processors = {
             'default': function(commandLine,cli){
@@ -493,6 +506,20 @@ class CLIClass {
             this.commands[name] = callback;
             if(typeof suggest == 'function')this.hints[name] = suggest;
         }
+        
+        /**
+         * Create an hard link to a CLI command. NOTE: This is a hard link. If the main is remvoed it will not affect the alias.
+         * @param {String} name The command to be used
+         * @param {String} linkname The name of the alias
+         */
+        this.link = function(name, linkname) {
+            linkname = linkname.toLower(this.caseSensitiveCommands);
+            name = name.toLower(this.caseSensitiveCommands);
+            this.commands[alias] = this.commands[name];
+            if (name in this.hints) {
+                this.hints[alias] = this.hints[name];
+            }
+        }        
     
         /**
          * Add a callback to process unknown (unrecognized) input. All callbacks will be tried until one of them returns
