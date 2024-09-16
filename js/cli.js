@@ -491,7 +491,7 @@ class CLIClass {
 
         this.load = function() {
             if (localStorage.getItem('output')) this.output.innerHTML = atob(localStorage.getItem('output'));
-            if (localStorage.getItem('history')) this.commandline_history = atob(localStorage.getItem('history'));
+            if (localStorage.getItem('history')) this.commandline_history = eval(atob(localStorage.getItem('history')));
         }
     
         /**
@@ -519,7 +519,7 @@ class CLIClass {
         this.extend = function(name, callback, suggest) {
             name = name.toLower(this.caseSensitiveCommands);
             this.commands[name] = callback;
-            if(typeof suggest == 'function')this.hints[name] = suggest;
+            if(typeof suggest == 'function') this.hints[name] = suggest;
         }
         
         /**
