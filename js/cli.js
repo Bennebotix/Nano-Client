@@ -425,7 +425,7 @@ class CLIClass {
                     mobile.click();
                 }
             });
-            window.onclick = () => {
+            parent.onclick = () => {
                 mobile.click();
             }
     
