@@ -420,7 +420,6 @@ class CLIClass {
             document.body.appendChild(mobile);
             setInterval(() => {
                 if (this.typing) {
-                    mobile.focus();
                     mobile.value = '';
                 }
             });
