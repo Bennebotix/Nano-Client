@@ -16,6 +16,8 @@ body, html {
     width: 100dvw;
     height: 100dvh;
     position: absolute;
+    border-radius: 0px;
+    caret-color: transparent;
     z-index: 998;
 }
 
