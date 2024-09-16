@@ -122,7 +122,7 @@
     cli.extend('trash',function(data,cli){
 
         var line = '';
-        for(var i=0;i<90000;i++){
+        for(var i=0;i<cli.calculateDim();i++){
             var code = Math.random() * 32 + 9472;
             line+=String.fromCharCode(code);
         }
