@@ -10,8 +10,8 @@ body, html {
 }
 
 .mobile {
-    opacity: 0;
-    top: -999999px;
+    opacity: 1;
+    /*top: -999999px;*/
     position: absolute;
 }
 
