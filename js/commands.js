@@ -69,6 +69,14 @@
             write(' ╚'+'═'.repeat(dim-4)+'╝ ').nl();
         write_c('The <a href="https://github.com/Bennebotix/Nano-Client">GitHub repository</a>',' ');
     });
+
+    cli.extend('motdslim',function(data,cli){
+        cli.clear();
+        cli.write('<a href="https://github.com/Bennebotix/Mega-Bitz">CLI [version 1.0]</a>');
+        cli.nl();
+        cli.write('Type <b>list</b> to get list of commands available');
+        cli.nl();
+    }
     
     cli.extend('mit',function(data,cli){
         cli.write(' ').nl().write('The MIT License (MIT)').nl().write('<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>').nl();
