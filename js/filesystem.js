@@ -99,7 +99,7 @@
 
         let cdPath = cli.path.toString().replace("\\", "/");
         
-        cli.commandline_prepend = (cdPath == '/root' ? '/root~' ? cdPath) + ' >';
+        cli.commandline_prepend = (cdPath == '/root' ? '/root~' : cdPath) + ' >';
 
     });
 
