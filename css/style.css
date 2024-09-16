@@ -21,6 +21,11 @@ body, html {
     z-index: 998;
 }
 
+mobile:focus {
+    outline: none;
+    filter: brightness(1);
+}
+
 .modal {
     z-index: 999;
     width: 90dvw;
