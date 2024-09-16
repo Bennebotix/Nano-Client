@@ -485,12 +485,12 @@ class CLIClass {
         }
 
         this.save = function() {
-            localStorage.setItem('output', btoa(document.querySelector('.output').innerHTML));
+            localStorage.setItem('output', btoa(this.output.innerHTML));
             localStorage.setItem('history', btoa(this.commandline_history));
         }
 
         this.load = function() {
-            if (localStorage.getItem('output')) document.querySelector('.output').innerHTML = atob(localStorage.getItem('output'));
+            if (localStorage.getItem('output')) this.output.innerHTML = atob(localStorage.getItem('output'));
             if (localStorage.getItem('history')) this.commandline_history = atob(localStorage.getItem('history'));
         }
     
