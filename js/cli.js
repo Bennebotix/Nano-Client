@@ -479,6 +479,10 @@ class CLIClass {
     
             return true;
         }
+
+        this.save = function() {
+            localStorage.setItem('output', document.querySelector('.output').innerHTML)
+        }
     
         /**
          * Calculate the number of characteds that is (by default) can be fitted into a single line.
@@ -520,7 +524,7 @@ class CLIClass {
             if (name in this.hints) {
                 this.hints[alias] = this.hints[name];
             }
-        }        
+        }
     
         /**
          * Add a callback to process unknown (unrecognized) input. All callbacks will be tried until one of them returns
