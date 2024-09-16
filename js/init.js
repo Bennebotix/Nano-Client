@@ -1,6 +1,6 @@
 CLI.init('cli');
 
-if (!localStorage.getItem('old')) {
+if (localStorage.getItem('old') !== true) {
     CLI.run('motd');
     localnStorage.setItem('old', true);
 } else {
