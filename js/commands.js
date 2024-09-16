@@ -1,6 +1,6 @@
 (function(cli){
 
-    cli.hiddenCommands = ['notif', 'rebootserviceworker', 'cls','motd','barn','test','reset','command_with_error','centered','line','list','mit','trash'];
+    cli.hiddenCommands = ['notif','rebootserviceworker','cls','motdslim','motd','barn','test','reset','command_with_error','centered','line','list','mit','trash'];
 
     cli.extend('rebootserviceworker',function(data,cli){
         rebootServiceWorker();
