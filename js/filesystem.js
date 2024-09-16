@@ -1,6 +1,6 @@
 (function(cli){
 
-    cli.path = new PathObject("/root");
+    cli.path = new PathObject(".", "/root"); // Root is /root, not just a default path
 
     cli.filesystem = {
         user: {
