@@ -327,13 +327,13 @@ class CLIClass {
             link: function (data, cli) {
                 let args = data.parameters;
                 cli.write(args.toString());
-                if (args.length !== 2) {
+                if (args.length !== 3) {
                     throw new TypeError("Link only accepts two arguments (orignal name, link name)");
                 }
-                if (!(args[0] in cli.commands)) {
+                if (!(args[1] in cli.commands)) {
                     throw new TypeError("Nonexistent command to link.");                 
                 }
-                this.link(args[0], args[1]);
+                this.link(args[1], args[2]);
                 
             }
                 
