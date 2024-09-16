@@ -317,13 +317,6 @@ class CLIClass {
             cls: function(data, cli) {
                 cli.clear();
             },
-            motdslim: function(data, cli) {
-                cli.clear();
-                cli.write('<a href="https://github.com/Bennebotix/Mega-Bitz">CLI [version 1.0]</a>')
-                    .nl()
-                    .write('Type <b>list</b> to get list of commands available')
-                    .nl();
-            },
             list: function (data, cli) {
                 var list = '';
                 for(var command in cli.commands){
