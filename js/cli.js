@@ -317,7 +317,7 @@ class CLIClass {
             cls: function(data, cli) {
                 cli.clear();
             },
-            motd: function(data, cli) {
+            motdslim: function(data, cli) {
                 cli.clear();
                 cli.write('<a href="https://github.com/Bennebotix/Mega-Bitz">CLI [version 1.0]</a>')
                     .nl()
