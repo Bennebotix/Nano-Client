@@ -76,10 +76,6 @@ mobile:focus {
 .cli_instance .input {
     position: absolute;
     bottom: 0;
-    grid-template:
-      "messages" 1fr
-      "input" auto
-      "keyboard" env(keyboard-inset-height, 0px);
     width: 100%;
     padding-bottom:0.5em;
     background: #000;
