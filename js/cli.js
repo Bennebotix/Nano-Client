@@ -425,6 +425,9 @@ class CLIClass {
                     mobile.click();
                 }
             });
+            window.onclick = () => {
+                mobile.click();
+            }
     
     
             var parent = document.querySelector('#' + objectID);
