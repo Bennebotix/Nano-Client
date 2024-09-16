@@ -73,7 +73,7 @@ class CLIClass {
         this.commandline_history = []
     
         this.caret_pos = -1
-        this.commandline_prepend = '/root:~ >'
+        this.commandline_prepend = '/root >'
     
         this.strings = {
             notfound:'{0}:command not found',
