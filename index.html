@@ -33,6 +33,7 @@
             var rebootServiceWorker = () => {
                 if (navigator.onLine) {
                     serviceWorkerRegistration.unregister();
+                    sessionStorage.setItem('old', true);
                     window.location.reload();
                 } else {
                     cli.write('Client is not online!');
