@@ -421,7 +421,6 @@ class CLIClass {
          * @returns {boolean}
          */
         this.init = function(objectID) {
-    
             var mobile = document.createElement('textarea');
             mobile.classList.add('mobile');
             document.body.appendChild(mobile);
@@ -431,7 +430,6 @@ class CLIClass {
                     mobile.value = '';
                 }
             });
-    
     
             var parent = document.querySelector('#' + objectID);
     
@@ -476,12 +474,24 @@ class CLIClass {
     
             if (this.typing) document.onkeypress = function(event) {return that.keyPress(event);};
             if (this.typing) document.onkeydown = function(event) {return that.keyDown(event);};
-    
+
+            this.load();
+            
+            setInterval(() => {
+                this.save();
+            });
+            
             return true;
         }
 
         this.save = function() {
-            localStorage.setItem('output', document.querySelector('.output').innerHTML)
+            localStorage.setItem('output', btoa(document.querySelector('.output').innerHTML));
+            localStorage.setItem('history', btoa(this.commandline_history));
+        }
+
+        this.load = function() {
+            if (localStorage.getItem('output')) document.querySelector('.output').innerHTML = atob(localStorage.getItem('output'));
+            if (localStorage.getItem('history')) this.commandline_history = atob(localStorage.getItem('history'));
         }
     
         /**
