@@ -423,11 +423,9 @@ class CLIClass {
                     mobile.focus();
                     mobile.value = '';
                     mobile.click();
+                    mobile.click(function(){mobile.trigger('focus')});
                 }
             });
-            parent.onclick = () => {
-                mobile.click();
-            }
     
     
             var parent = document.querySelector('#' + objectID);
