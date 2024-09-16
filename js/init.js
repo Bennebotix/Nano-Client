@@ -1,8 +1,8 @@
 CLI.init('cli');
 
-if (CLI.commands.motd != undefined && !sessionStorage.getItem('old')) {
+if (CLI.commands.motd != undefined && !localStorage.getItem('old')) {
     CLI.run('motd');
-    sessionStorage.setItem('old', true);
+    localnStorage.setItem('old', true);
 } else {
     CLI.run('motdslim');
 }
