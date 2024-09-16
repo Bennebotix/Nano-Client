@@ -76,7 +76,7 @@
         cli.nl();
         cli.write('Type <b>list</b> to get list of commands available');
         cli.nl();
-    }
+    });
     
     cli.extend('mit',function(data,cli){
         cli.write(' ').nl().write('The MIT License (MIT)').nl().write('<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>').nl();
