@@ -418,6 +418,7 @@ class CLIClass {
             var mobile = document.createElement('textarea');
             mobile.classList.add('mobile');
             document.body.appendChild(mobile);
+            mobile.focus();
             setInterval(() => {
                 if (this.typing) {
                     mobile.value = '';
