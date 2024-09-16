@@ -94,9 +94,12 @@
         // "cli.currentDir" is the filesystem object
 
         // "cli.path" is an arr like "['user', 'downloads']"
-        cli.path.applyRelative(command.parametersText)
         
-        cli.commandline_prepend= cli.path.toString().replace("\\", "/") + ' >';
+        cli.path.applyRelative(command.parametersText)
+
+        let cdPath = cli.path.toString().replace("\\", "/");
+        
+        cli.commandline_prepend = (cdPath == '/root' ? '/root~' ? cdPath) + ' >';
 
     });
 
