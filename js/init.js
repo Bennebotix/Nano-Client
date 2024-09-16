@@ -1,1 +1,1 @@
-
+CLI.init('cli');
