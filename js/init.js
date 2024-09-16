@@ -1,6 +1,6 @@
 CLI.init('cli');
 
-if(cli.commands.motd != undefined && !sessionStorage.getItem('old')) {
-    cli.run('motd');
+if(CLI.commands.motd != undefined && !sessionStorage.getItem('old')) {
+    CLI.run('motd');
     sessionStorage.setItem('old', true);
 }
