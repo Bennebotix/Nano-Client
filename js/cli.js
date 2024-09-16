@@ -465,8 +465,6 @@ class CLIClass {
     
             this.renderCommandLine();
     
-            if(this.commands.motd != undefined)this.run('motd');
-    
             var that = this;
     
             if (this.typing) document.onkeypress = function(event) {return that.keyPress(event);};
