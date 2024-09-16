@@ -23,7 +23,6 @@ body, html {
 
 mobile:focus {
     outline: none;
-    filter: brightness(1);
 }
 
 .modal {
