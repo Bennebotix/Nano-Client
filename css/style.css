@@ -6,7 +6,8 @@
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100dvw;
+    width: 100dvh;
 }
 
 .mobile {
@@ -53,8 +54,8 @@ mobile:focus {
     padding: 0;
     color: #aaa;
     font: normal 12pt monospace;
-    width: 100%;
-    height: 100%;
+    width: 100dvw;
+    height: 100dvh;
     border: none;
     white-space: pre-wrap;
     word-break:break-all;
@@ -74,7 +75,11 @@ mobile:focus {
 }
 .cli_instance .input {
     position: absolute;
-    bottom:0;
+    bottom: 0;
+    grid-template:
+      "messages" 1fr
+      "input" auto
+      "keyboard" env(keyboard-inset-height, 0px);
     width: 100%;
     padding-bottom:0.5em;
     background: #000;
