@@ -465,6 +465,11 @@ class CLIClass {
     
             this.renderCommandLine();
     
+            if(cli.commands.motd != undefined && !sessionStorage.getItem('old')) {
+                cli.run('motd');
+                sessionStorage.setItem('old', true);
+            }
+    
             var that = this;
     
             if (this.typing) document.onkeypress = function(event) {return that.keyPress(event);};
