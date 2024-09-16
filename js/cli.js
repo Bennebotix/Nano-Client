@@ -422,8 +422,6 @@ class CLIClass {
                 if (this.typing) {
                     mobile.focus();
                     mobile.value = '';
-                    mobile.click();
-                    mobile.click(function(){mobile.trigger('focus')});
                 }
             });
     
