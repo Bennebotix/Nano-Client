@@ -475,11 +475,11 @@ class CLIClass {
             if (this.typing) document.onkeypress = function(event) {return that.keyPress(event);};
             if (this.typing) document.onkeydown = function(event) {return that.keyDown(event);};
 
-            //this.load();
+            this.load();
             
-            // setInterval(() => {
-                // this.save();
-            // });
+            setInterval(() => {
+                this.save();
+            });
             
             return true;
         }
