@@ -1,14 +1,22 @@
 (function(cli){
 
+    class cli.File {
+        constructor(name, callback) {
+            this.name = name;
+            this.callback = callback;
+            this.type = 'file';
+        }
+
+        exec() {
+            this.callback();
+        }
+    }
+
     cli.path = new PathObject(".", "/root"); // Root is /root, not just a default path
 
-    cli.filesystem = {
-        user: {
-            downloads: {
-            }
-        },
-        reload: () => window.location.reload()
-    }
+    cli.filesystem = [
+        new cli.File('reload', window.location.reload)
+    ]
 
     cli.get_dir = function(path){
         var current_dir = cli.filesystem;
@@ -18,8 +26,6 @@
         }
         return current_dir;
     }
-
-    cli.currentDir = cli.filesystem;
 
     cli.hiddenCommands.push('ls');
 
@@ -44,8 +50,13 @@
 
     cli.extend('exec',function(command,cli){
         var filename = command.parametersText;
-        if(cli.currentDir.hasOwnProperty(filename)) {
-            if(typeof cli.currentDir[filename] == 'function') cli.currentDir[filename]();
+        cli.filesystem(flie => {
+            if (file.name == filename && file.type == 'file') {
+                file.exec();
+            }
+        })
+        if(cli.filesystem.hasOwnProperty(filename)) {
+            if(typeof cli.filesystem[filename] == 'function') cli.filesystem[filename].exec();
             else cli.write('"'+filename+'" is not an executable!');
         } else cli.write('Could not find executable: "'+filename+'"');
         cli.nl();
