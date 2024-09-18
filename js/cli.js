@@ -326,7 +326,7 @@ class CLIClass {
             },
             link: function (data, cli) {
                 let args = data.parameters;
-                cli.write(args.toString());
+                cli.write(args.length);
                 if (args.length !== 3) {
                     throw new TypeError("Link only accepts two arguments (orignal name, link name)");
                 }
